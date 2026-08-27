@@ -4,6 +4,8 @@ Hệ thống đánh giá sự tối ưu của mô hình học máy trên thiết
 
 Dự án được ứng dụng vào bài toán nhận dạng **12 lớp Di sản Văn hóa Phi vật thể Nam Bộ Việt Nam** (Chợ nổi Cái Răng, Đờn ca tài tử, Nghề dệt chiếu, Đua bò Bảy Núi,...), góp phần bảo tồn và gìn giữ bản sắc văn hóa dân tộc.
 
+Lưu ý: Đây chỉ là demo được xây dựng để trực quan hóa và đối chứng các kết quả thử nghiệm mô hình. Chi tiết nghiên cứu xin vui lòng tìm đọc tại thư viện trường CNTT&TT ĐH Cần Thơ đề tài "MECK: MÔ HÌNH HỌC ĐA CHUYÊN GIA KẾT HỢP TRI THỨC KHÁI NIỆM CHO PHÂN LỚP DI SẢN VĂN HÓA PHI VẬT THỂ"
+
 ---
 ## Tính năng Nổi bật
 
