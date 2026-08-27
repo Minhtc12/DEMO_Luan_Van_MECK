@@ -26,7 +26,7 @@ Clone kho lưu trữ này về máy và cài đặt các thư viện cần thi�
 git clone https://github.com/Minhtc12/DEMO_Luan_Van_MECK.git
 pip install -r requirements.txt
 ```
-3. Tải Trọng số Mô hình (Checkpoints)
+### 3. Tải Trọng số Mô hình (Checkpoints)
 Do giới hạn dung lượng của GitHub, toàn bộ các file trọng số .pth (tổng cộng 50+ mô hình) được lưu trữ riêng trên Google Drive. Bạn cần tải về để hệ thống có thể chạy được.
 
 Truy cập vào link Google Drive sau: 👉 [TẢI CHECKPOINTS TẠI ĐÂY](https://drive.google.com/drive/folders/19xsUOQdKAg8zMNVnnwOePLzJScOj-ZK0?usp=drive_link) 👈
@@ -47,7 +47,7 @@ cbm-heritage-project/
 ├── main.py
 └── README.md
 ```
-4. Khởi chạy Ứng dụng
+### 4. Khởi chạy Ứng dụng
 Khởi động máy chủ FastAPI bằng uvicorn:
 ```bash
 uvicorn main:app --reload
