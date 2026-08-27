@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Phân Tích Chưng Cất Tri Thức (CBM)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css?v=35">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-overlay"></div>
+    <header class="main-header">
+        <!-- Đã bỏ container bị giới hạn, đổi thành w-100 để bung full màn hình -->
+        <nav class="top-navbar w-100 px-4 pt-4 pb-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+                <div class="header-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <div>
+                    <div class="logo-text-main">CBM HERITAGE</div>
+                    <div class="logo-text-sub">KNOWLEDGE DISTILLATION PROJECT</div>
+                </div>
+            </div>
+            <div class="nav-links d-none d-md-flex gap-4 align-items-center">
+                <a href="#"><i class="bi bi-compass"></i> Khám phá</a>
+                <a href="#"><i class="bi bi-bank"></i> Di sản</a>
+                <a href="#"><i class="bi bi-info-circle"></i> Giới thiệu</a>
+            </div>
+        </nav>
+
+        <div class="hero-content text-center">
+            <div class="ai-badge mb-3">
+                <i class="bi bi-patch-check-fill text-warning me-1"></i> AI-POWERED | Cultural Heritage Recognition
+            </div>
+            <h4 class="hero-subtitle">KHÁM PHÁ & BẢO TỒN</h4>
+            <h1 class="hero-title">Di sản Văn hóa Phi vật thể<br><span class="text-gold">Nam Bộ Việt Nam</span></h1>
+            <p class="hero-desc mx-auto mt-3">
+                Khung kiến trúc MECK (Multi-Expert Concept Knowledge): Giải pháp Trí tuệ nhân tạo giải thích được (XAI) tiên phong tích
+                hợp chưng cất tri thức đa chuyên gia. Hệ thống tối ưu hóa khả năng nhận diện di sản văn hóa phi vật thể Việt Nam,
+                mang lại sự cân bằng hoàn hảo giữa hiệu năng cao, dung lượng siêu nhẹ cho thiết bị biên và sự minh bạch tuyệt đối trong
+                chuỗi suy luận.
+            </p>
+        </div>
+
+        <div class="header-stats-wrapper">
+            <div class="header-stats-box">
+                <div class="row w-100 m-0">
+                    <div class="col-md-4 d-flex align-items-center justify-content-center gap-3 mb-3 mb-md-0 stat-divider">
+                        <i class="bi bi-cpu fs-1 text-gold"></i>
+                        <div class="text-start">
+                            <div class="stat-number">50+ Mô hình</div>
+                            <div class="stat-label">AI Thực nghiệm Đối chứng</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-center gap-3 mb-3 mb-md-0 stat-divider">
+                        <i class="bi bi-bullseye fs-1 text-gold"></i>
+                        <div class="text-start">
+                            <div class="stat-number">~96.0%</div>
+                            <div class="stat-label">Độ chính xác (Ultimate CBM)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-center justify-content-center gap-3 border-0">
+                        <i class="bi bi-journal-text fs-1 text-gold"></i>
+                        <div class="text-start">
+                            <div class="stat-number">62 Khái niệm</div>
+                            <div class="stat-label">Kiểm duyệt từ chuyên gia</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="appShell">
+        <aside id="selectionPanel" class="glass-panel">
+            <div class="selection-panel-inner">
+                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3 selection-panel-topbar">
+                    <h2 class="panel-title m-0">AI Dashboard</h2>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="selection-count" id="selectionCount">Chưa chọn mô hình nào</div>
+                        <button type="button" id="toggleSelectionBtn" class="selection-toggle-btn d-none" title="Ẩn/hiện bảng chọn">
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <form id="evaluationForm">
+                    <div class="selection-grid">
+                        <div class="selection-col-upload">
+                            <label class="form-label fw-bold small text-info mb-2"><i class="bi bi-image me-1"></i>Dữ Liệu Đầu Vào</label>
+                            <div class="upload-zone" id="dropZone" onclick="document.getElementById('fileSourceInput').click()">
+                                <div id="uploadPlaceholder">
+                                    <i class="bi bi-cloud-arrow-up text-primary" style="font-size: 2rem;"></i>
+                                    <p class="mt-2 mb-0 small text-muted">Nhấp hoặc kéo thả ảnh vào đây</p>
+                                </div>
+                                <img id="imagePreview" src="" alt="Preview">
+                            </div>
+                            <input type="file" id="fileSourceInput" class="d-none" accept="image/*" required>
+
+                            <button type="submit" class="btn btn-glow w-100" id="executeBtn">
+                                <i class="bi bi-play-fill me-1"></i>Phân Tích Đối Chứng
+                            </button>
+                        </div>
+
+                        <div class="selection-col-models">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-2">
+                                <label class="form-label fw-bold small text-info m-0"><i class="bi bi-cpu me-1"></i>Kiến Trúc Đối Chứng</label>
+                                <div class="view-toggle ms-md-3" role="tablist">
+                                    <button type="button" class="view-toggle-btn active" data-view="stage" id="btnViewStage">
+                                        <i class="bi bi-layers me-1"></i>Theo giai đoạn
+                                    </button>
+                                    <button type="button" class="view-toggle-btn" data-view="journey" id="btnViewJourney">
+                                        <i class="bi bi-signpost-split me-1"></i>Hành trình 1 Backbone
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="stageViewPanel">
+                                <div class="model-list" id="dynamicModelContainer"></div>
+                            </div>
+
+                            <div id="journeyViewPanel" class="d-none">
+                                <div class="journey-select-wrapper">
+                                    <i class="bi bi-signpost-split"></i>
+                                    <select id="journeyBackboneSelect"></select>
+                                </div>
+                                <div class="model-list" id="journeyModelContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+        <main id="resultsPanel">
+            <div class="hero-image-container" id="heroImageContainer">
+                <img id="heroImage" src="" alt="Ảnh phân tích">
+            </div>
+
+            <div id="resultsEmptyState" class="results-empty-state">
+                <i class="bi bi-clipboard-data"></i>
+                <p>Chọn ảnh và ít nhất một mô hình rồi bấm "Phân Tích Đối Chứng" để xem kết quả tại đây.</p>
+            </div>
+
+            <div class="results-grid-compact" id="nonCbmGridRender"></div>
+            <div class="d-flex flex-column gap-3 mb-4" id="cbmGridRender"></div>
+
+            <div class="row g-4" id="chartsRow" style="display:none;">
+                <div class="col-12 col-xl-6">
+                    <div class="chart-wrapper">
+                        <h6 class="text-center text-info small fw-bold mb-3">ĐỘ TỰ TIN NHÃN CAO NHẤT (%)</h6>
+                        <div class="chart-canvas"><canvas id="confChart"></canvas></div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-6">
+                    <div class="chart-wrapper">
+                        <h6 class="text-center text-warning small fw-bold mb-3">THỜI GIAN SUY LUẬN (MS)</h6>
+                        <div class="chart-canvas"><canvas id="timeChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container-fluid px-4">
+            <div class="footer-brand">
+                <div class="header-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                <div>
+                    <div class="logo-text-main" style="font-size: 1.2rem;">CBM HERITAGE</div>
+                    <div class="logo-text-sub">KNOWLEDGE DISTILLATION PROJECT</div>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-4">
+                <div class="col-lg-5">
+                    <div class="footer-card">
+                        <h6 class="footer-title"><i class="bi bi-file-earmark-text me-2"></i>Thông tin Nghiên cứu</h6>
+                        <p class="mb-0" style="font-size: 0.85rem; text-align: justify; line-height: 1.7; color: #cbd5e1;">
+                            Hệ thống đánh giá sự tối ưu của mô hình học máy trên thiết bị biên thông qua kỹ thuật Knowledge
+                            Distillation. Tích hợp lớp Bottleneck Concepts và LLM nhằm mở khóa tính năng minh bạch hóa, giải
+                            thích quyết định của hệ thống AI.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-card">
+                        <h6 class="footer-title"><i class="bi bi-hdd-network me-2"></i>Môi trường Thực thi</h6>
+                        <ul class="footer-list">
+                            <li><span class="footer-icon-badge"><i class="bi bi-cpu"></i></span>Intel Core i5-12500H</li>
+                            <li><span class="footer-icon-badge"><i class="bi bi-gpu-card"></i></span>NVIDIA RTX 3050 Laptop</li>
+                            <li><span class="footer-icon-badge"><i class="bi bi-device-ssd"></i></span>KIOXIA KBG50ZNT512G</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-card">
+                        <h6 class="footer-title"><i class="bi bi-person-vcard me-2"></i>Định danh Tác giả</h6>
+                        <ul class="footer-list">
+                            <li><span class="footer-icon-badge"><i class="bi bi-person-badge"></i></span>Học viên: Công Minh Trương</li>
+                            <li><span class="footer-icon-badge"><i class="bi bi-journal-code"></i></span>Chuyên ngành: Khoa học Máy tính</li>
+                            <li><span class="footer-icon-badge"><i class="bi bi-shield-check"></i></span>Trạng thái: Hội đồng Bảo vệ Luận văn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Giao diện thử nghiệm thuộc Đề tài Nghiên cứu cấp Khoa học Máy tính.</span>
+                <span class="footer-bottom-tag"><i class="bi bi-mortarboard"></i> Đại học Cần Thơ</span>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/script.js?v=35"></script>
+</body>
+</html>
