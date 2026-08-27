@@ -50,6 +50,6 @@ cbm-heritage-project/
 ### 4. Khởi chạy Ứng dụng
 Khởi động máy chủ FastAPI bằng uvicorn:
 ```bash
-uvicorn main:app --reload
+pyhthon -m uvicorn main:app --reload
 ```
 Mở trình duyệt web và truy cập vào địa chỉ: http://127.0.0.1:8000 để sử dụng hệ thống.
