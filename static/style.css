@@ -1,6 +1,4 @@
-/* ==========================================================================
-   BỘ BIẾN MÀU SẮC CHUẨN HỌC THUẬT (CTU THEME)
-   ========================================================================== */
+
 :root {
     --gold-primary: #c5a85c;
     --gold-light: #e6c875;
@@ -34,14 +32,10 @@ body {
     display: none;
 }
 
-/* ==========================================================================
-   1. HEADER HERO (FULL-SCREEN 100VH TỪ TRÊN XUỐNG DƯỚI)
-   ========================================================================== */
 .main-header {
     background: url('body_bgr.png') center/cover no-repeat;
     position: relative;
     min-height: 100vh;
-    /* ĐỔI TỪ 52vh SANG 100vh ĐỂ FULL KÍN MÀN HÌNH */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -150,13 +144,11 @@ body {
 .hero-title {
     font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
-    /* Cũ là 2.4rem, tăng lên 3.5rem */
     font-weight: 700;
     color: #ffffff;
     line-height: 1.3;
     margin-bottom: 1.2rem;
     text-shadow: 0 5px 25px rgba(0, 0, 0, 0.9);
-    /* Tăng bóng đổ cho chữ */
 }
 
 .text-gold {
@@ -216,9 +208,6 @@ body {
     }
 }
 
-/* ==========================================================================
-   2. KHUNG ỨNG DỤNG LÚC MỚI VÀO (CHƯA PHÂN TÍCH)
-   ========================================================================== */
 .glass-panel,
 .model-card-wide,
 .chart-wrapper {
@@ -231,7 +220,6 @@ body {
 #appShell {
     width: 100%;
     max-width: 1600px;
-    /* Nới cực rộng để 4 cột mô hình đứng thoải mái */
     margin: 0 auto;
     padding: 3rem 1.5rem 3rem 1.5rem;
     box-sizing: border-box;
@@ -309,9 +297,6 @@ body {
     min-width: 0;
 }
 
-/* ==========================================================================
-   3. TRẠNG THÁI SAU KHI SUBMIT (CÓ KẾT QUẢ)
-   ========================================================================== */
 body.has-results #appShell {
     max-width: 1700px;
     display: grid;
@@ -472,9 +457,6 @@ body.has-results .model-list {
     letter-spacing: 0.3px;
 }
 
-/* ==========================================================================
-   MỤC BẠN YÊU CẦU: ÉP CỨNG ĐÚNG 4 CỘT MÔ HÌNH
-   ========================================================================== */
 .stage-section-body {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -672,9 +654,6 @@ body.has-results #selectionPanel .stage-section-body {
     transform: none;
 }
 
-/* ==========================================================================
-   4. THẺ KẾT QUẢ NON-CBM VÀ CBM
-   ========================================================================== */
 .hero-image-container {
     display: none;
     width: 100%;
@@ -1002,9 +981,6 @@ body.has-results #selectionPanel .stage-section-body {
     border-radius: 3px;
 }
 
-/* ==========================================================================
-   5. FOOTER
-   ========================================================================== */
 .main-footer {
     background: linear-gradient(180deg, rgba(10, 13, 22, 0.97), rgba(8, 10, 17, 0.99));
     backdrop-filter: blur(20px);

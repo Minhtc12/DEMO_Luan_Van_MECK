@@ -2,7 +2,6 @@ let globalCharts = {};
 let ALL_MODELS = [];               
 let SELECTED_KEYS = new Set();     
 
-// 1. Đã bổ sung 2 kiến trúc DenseNet121 và EfficientNet-B3
 const STUDENT_BACKBONE_ORDER = ["mobilenet_v3_large", "efficientnet_b0", "resnet18", "shufflenet_v2_x1_0", "densenet121", "efficientnet_b3"];
 
 function refPct(v) {
@@ -28,9 +27,7 @@ function checkboxHtml(m, idPrefix = 'cb', titleText = null, refLineOverride = nu
         </label>`;
 }
 
-// ==========================================================================
-// HÀM ĐỒNG BỘ TỐI THƯỢNG: Đảm bảo 100% hai tab luôn khớp nhau
-// ==========================================================================
+
 function refreshUIState() {
     // Quét toàn bộ checkbox hiện có trên màn hình
     document.querySelectorAll('.model-option-checkbox').forEach(cb => {

@@ -1,4 +1,3 @@
-# File: models/model_loader.py
 import torch
 import torch.nn as nn
 from torchvision import models
@@ -7,9 +6,6 @@ import io
 import os
 import time
 
-# ==========================================================================
-# 1. NHÃN LỚP & KHÁI NIỆM
-# ==========================================================================
 CLASS_NAMES = [
     "cho-noi-cai-rang", "chua", "dieu-mua-truyen-thong", "don-ca-tai-tu",
     "dua-bo-bay-nui", "le-hoi-nghinh-ong", "nghe-dan-tre", "nghe-det-chieu",
@@ -108,9 +104,6 @@ NUM_CONCEPTS = len(CONCEPT_NAMES)
 
 device = torch.device('cpu')
 
-# ==========================================================================
-# 2. BACKBONE FACTORY
-# ==========================================================================
 STUDENT_BACKBONES = {
     "mobilenet_v3_large": "MobileNetV3-Large",
     "efficientnet_b0": "EfficientNet-B0",
@@ -229,9 +222,6 @@ class StudentCBM(nn.Module):
         return concept_probs, class_logits
 
 
-# ==========================================================================
-# 3. GIAI ĐOẠN THỰC NGHIỆM
-# ==========================================================================
 STAGES = [
     {"id": "baseline",      "order": 1, "label": "1. Baseline (Học trực tiếp)",                    "is_cbm": False, "teacher": None},
     {"id": "kd1",            "order": 2, "label": "2. Chưng cất từ 1 Thầy",                          "is_cbm": False, "teacher": "single"},
@@ -258,9 +248,7 @@ STAGE_ROUTING_SUFFIX = {
     "meck5_ensemble": "Ensemble", "meck5_expert": "Expert",
 }
 
-# ==========================================================================
-# 4. METRIC THAM CHIẾU TỪ LUẬN VĂN
-# ==========================================================================
+
 REF_METRICS = {
     # ---- Teacher (mục 4.2.1) ----
     ("teacher", "resnet50"):        {"precision": 0.9523, "recall": 0.9495, "f1": 0.9503, "acc": 0.9530, "size_mb": 90.075},
@@ -372,9 +360,6 @@ def ckpt(prefix: str, backbone: str) -> str:
     return os.path.join(CHECKPOINT_DIR, f"{prefix}_{backbone}_best.pth")
 
 
-# ==========================================================================
-# 5. SINH MODEL_REGISTRY TỰ ĐỘNG
-# ==========================================================================
 MODEL_REGISTRY = {}
 
 # --- Thầy ---
@@ -431,9 +416,6 @@ for stage in STAGES:
         }
 
 
-# ==========================================================================
-# 6. NẠP MÔ HÌNH HÀNG LOẠT
-# ==========================================================================
 def load_all_models():
     print(f"Đang khởi tạo {len(MODEL_REGISTRY)} mô hình đã đăng ký...")
     loaded_models = {}
@@ -459,9 +441,6 @@ def load_all_models():
     return loaded_models
 
 
-# ==========================================================================
-# 7. SUY LUẬN
-# ==========================================================================
 def _get_transform():
     from torchvision import transforms
     return transforms.Compose([
