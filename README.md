@@ -1,6 +1,9 @@
 # CBM HERITAGE - Knowledge Distillation Project 
-Hệ thống đánh giá sự tối ưu của các mô hình học máy trên thiết bị biên thông qua kỹ thuật **Knowledge Distillation (KD)**. Dự án tích hợp lớp **Bottleneck Concepts (CBM)** và **Mô hình Ngôn ngữ Lớn (LLM)** nhằm mở khóa tính năng minh bạch hóa, giải thích quyết định của hệ thống Trí tuệ Nhân tạo (Explainable AI).
+
+Hệ thống đánh giá sự tối ưu của mô hình học máy trên thiết bị biên thông qua kỹ thuật **Knowledge Distillation (KD)**. Dự án tích hợp lớp **Bottleneck Concepts (CBM)** và **Mô hình Ngôn ngữ Lớn (LLM)** nhằm mở khóa tính năng minh bạch hóa, giải thích quyết định của hệ thống Trí tuệ Nhân tạo (Explainable AI).
+
 Dự án được ứng dụng vào bài toán nhận dạng **12 lớp Di sản Văn hóa Phi vật thể Nam Bộ Việt Nam** (Chợ nổi Cái Răng, Đờn ca tài tử, Nghề dệt chiếu, Đua bò Bảy Núi,...), góp phần bảo tồn và gìn giữ bản sắc văn hóa dân tộc.
+
 ---
 ## Tính năng Nổi bật
 
@@ -28,7 +31,7 @@ Do giới hạn dung lượng của GitHub, toàn bộ các file trọng số .p
 
 Truy cập vào link Google Drive sau: 👉 [TẢI CHECKPOINTS TẠI ĐÂY](https://drive.google.com/drive/folders/19xsUOQdKAg8zMNVnnwOePLzJScOj-ZK0?usp=drive_link) 👈
 
-Tải toàn bộ các file .pth về máy.
+Tải về máy và giải nén.
 
 Đặt tất cả các file vừa tải vào trong thư mục checkpoints/ ở thư mục gốc của dự án.
 (Nếu chưa có thư mục checkpoints/, hãy tạo mới nó).
